@@ -1,0 +1,5 @@
+{
+  "commandDescription": "Push static resources to the org and update state tracking for scratch orgs",
+  "checkonlyFlagDescription": "report resources not already present in the org",
+  "createonlyFlagDescription": "create resources not already present in the org"
+}
