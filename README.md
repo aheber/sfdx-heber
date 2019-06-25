@@ -22,7 +22,7 @@ $ npm install -g sfdx-heber
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-heber/0.0.1 win32-x64 node-v10.15.3
+sfdx-heber/0.0.2 win32-x64 node-v10.16.0
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -66,7 +66,7 @@ EXAMPLE
   $ sfdx heber:staticresources:deploy
 ```
 
-_See code: [src\commands\heber\staticresources\deploy.ts](https://github.com/aheber/sfdx-heber/blob/v0.0.1/src\commands\heber\staticresources\deploy.ts)_
+_See code: [src\commands\heber\staticresources\deploy.ts](https://github.com/aheber/sfdx-heber/blob/v0.0.2/src\commands\heber\staticresources\deploy.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin

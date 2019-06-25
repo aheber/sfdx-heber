@@ -78,8 +78,17 @@ export default class Org extends SfdxCommand {
       // Add to the all-static resource list
       const d = path.parse(p);
       const nameTrimmed = d.name.replace(".resource-meta", "");
+
+      if (allStaticResources.has(nameTrimmed)) {
+        this.ux.log(
+          `Already have a static resource named ${nameTrimmed} at ${
+            allStaticResources.get(nameTrimmed).path
+          } -- ${p}`
+        );
+        return;
+      }
+
       let id;
-      allStaticResources.set(nameTrimmed, { path: p, id });
       if (inOrg.has(nameTrimmed)) {
         // this.ux.log(`Org has ${nameTrimmed}`);
         id = inOrg.get(nameTrimmed).Id; // Org has the resource so should update if needed
@@ -148,7 +157,7 @@ export default class Org extends SfdxCommand {
             ]);
             resourcePaths.forEach(async p => {
               // console.log("Found Path for", key, "::", p);
-              s.Body = fs.readFileSync(p).toString();
+              s.Body = Buffer.from(fs.readFileSync(p)).toString("base64");
               try {
                 await this.uploadFile(conn, s);
               } catch (e) {

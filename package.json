@@ -1,7 +1,7 @@
 {
   "name": "sfdx-heber",
   "description": "SFDX plugin for Salesforce created by Anthony Heber",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Anthony Heber @aheber",
   "bugs": "https://github.com/aheber/sfdx-heber/issues",
   "dependencies": {
