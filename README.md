@@ -22,7 +22,7 @@ $ npm install -g sfdx-heber
 $ sfdx COMMAND
 running command...
 $ sfdx (-v|--version|version)
-sfdx-heber/0.0.0 win32-x64 node-v10.15.3
+sfdx-heber/0.0.1 win32-x64 node-v10.15.3
 $ sfdx --help [COMMAND]
 USAGE
   $ sfdx COMMAND
@@ -30,20 +30,23 @@ USAGE
 ```
 <!-- usagestop -->
 <!-- commands -->
-* [`sfdx heber:staticresources:deploy [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-heberstaticresourcesdeploy--n-string--f--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
+* [`sfdx heber:staticresources:deploy [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`](#sfdx-heberstaticresourcesdeploy--c--r--v-string--u-string---apiversion-string---json---loglevel-tracedebuginfowarnerrorfataltracedebuginfowarnerrorfatal)
 
-## `sfdx heber:staticresources:deploy [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
+## `sfdx heber:staticresources:deploy [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]`
 
-print a greeting and your org IDs
+Push static resources to the org and update state tracking for scratch orgs
 
 ```
 USAGE
-  $ sfdx heber:staticresources:deploy [-n <string>] [-f] [-v <string>] [-u <string>] [--apiversion <string>] [--json] 
-  [--loglevel trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
+  $ sfdx heber:staticresources:deploy [-c] [-r] [-v <string>] [-u <string>] [--apiversion <string>] [--json] [--loglevel 
+  trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL]
 
 OPTIONS
-  -f, --force                                                                       example boolean flag
-  -n, --name=name                                                                   name to print
+  -c, --checkonly                                                                   report resources not already present
+                                                                                    in the org
+
+  -r, --createonly                                                                  create resources not already present
+                                                                                    in the org
 
   -u, --targetusername=targetusername                                               username or alias for the target
                                                                                     org; overrides default target org
@@ -59,16 +62,11 @@ OPTIONS
   --loglevel=(trace|debug|info|warn|error|fatal|TRACE|DEBUG|INFO|WARN|ERROR|FATAL)  [default: warn] logging level for
                                                                                     this command invocation
 
-EXAMPLES
-  $ sfdx hello:org --targetusername myOrg@example.com --targetdevhubusername devhub@org.com
-     Hello world! This is org: MyOrg and I will be around until Tue Mar 20 2018!
-     My hub org id is: 00Dxx000000001234
-  
-  $ sfdx hello:org --name myname --targetusername myOrg@example.com
-     Hello myname! This is org: MyOrg and I will be around until Tue Mar 20 2018!
+EXAMPLE
+  $ sfdx heber:staticresources:deploy
 ```
 
-_See code: [src\commands\heber\staticresources\deploy.ts](https://github.com/aheber/sfdx-heber/blob/v0.0.0/src\commands\heber\staticresources\deploy.ts)_
+_See code: [src\commands\heber\staticresources\deploy.ts](https://github.com/aheber/sfdx-heber/blob/v0.0.1/src\commands\heber\staticresources\deploy.ts)_
 <!-- commandsstop -->
 <!-- debugging-your-plugin -->
 # Debugging your plugin
